@@ -54,9 +54,6 @@ router.get(
   "/get-all-orders/:userId",
   catchAsyncErrors(async (req, res, next) => {
     try {
-      // const orders = await Order.find({ "user._id": req.params.userId }).sort({
-      //   createdAt: -1,
-      // });
 
       const orders = await Order.find().sort({ createdAt: -1 });
 
@@ -75,11 +72,13 @@ router.get(
   "/get-seller-all-orders/:shopId",
   catchAsyncErrors(async (req, res, next) => {
     try {
-      const orders = await Order.find({
-        "cart.shopId": req.params.shopId,
-      }).sort({
-        createdAt: -1,
-      });
+      // const orders = await Order.find({
+      //   "cart.shopId": req.params.shopId,
+      // }).sort({
+      //   createdAt: -1,
+      // });
+
+      const orders = await Order.find().sort({ createdAt: -1 });
 
       res.status(200).json({
         success: true,
