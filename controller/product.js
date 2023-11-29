@@ -25,6 +25,7 @@ const upload = multer({ storage });
 // create product
 router.post(
   '/create-product',
+  isSeller,
   upload.array('images', 5), // 'images' corresponds to the field name in the form
   catchAsyncErrors(async (req, res, next) => {
     try {
