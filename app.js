@@ -6,7 +6,7 @@ const bodyParser = require("body-parser");
 const cors = require("cors");
 
 app.use(cors({
-  origin: ["http://localhost:3000","http://samix.vercel.app", "https://winta-sand.vercel.app"],
+  origin: ["http://localhost:3000","http://samix.vercel.app", "https://winta-sand.vercel.app", "https://winta-git-main-auxileisaacs-projects.vercel.app"],
   credentials: true
 }));
 
