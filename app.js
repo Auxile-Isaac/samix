@@ -5,8 +5,9 @@ const cookieParser = require("cookie-parser");
 const bodyParser = require("body-parser");
 const cors = require("cors");
 
+// Apply CORS middleware at the top
 app.use(cors({
-  origin: ["http://localhost:3000","http://samix.vercel.app", "https://winta-sand.vercel.app", "https://winta-git-main-auxileisaacs-projects.vercel.app"],
+  origin: ["http://localhost:3000", "http://samix.vercel.app", "https://winta-sand.vercel.app", "https://winta-git-main-auxileisaacs-projects.vercel.app"],
   credentials: true
 }));
 
@@ -18,14 +19,14 @@ app.use("/test", (req, res) => {
 
 app.use(bodyParser.urlencoded({ extended: true, limit: "50mb" }));
 
-// config
+// Config
 if (process.env.NODE_ENV !== "PRODUCTION") {
   require("dotenv").config({
     path: "config/.env",
   });
 }
 
-// import routes
+// Import routes
 const user = require("./controller/user");
 const shop = require("./controller/shop");
 const product = require("./controller/product");
@@ -48,7 +49,7 @@ app.use("/api/v2/coupon", coupon);
 app.use("/api/v2/payment", payment);
 app.use("/api/v2/withdraw", withdraw);
 
-// it's for ErrorHandling
+// Error Handling Middleware
 app.use(ErrorHandler);
 
 module.exports = app;
