@@ -7,8 +7,12 @@ const cors = require("cors");
 
 // Apply CORS middleware at the top
 app.use(cors({
-  origin: ["http://localhost:3000", "http://samix.vercel.app", "https://winta-sand.vercel.app", "https://winta-git-main-auxileisaacs-projects.vercel.app/"],
-  credentials: true
+  origin: ["http://localhost:3000", "http://samix.vercel.app", "https://winta-sand.vercel.app", "https://winta-git-main-auxileisaacs-projects.vercel.app"],
+  credentials: true,
+  methods: ["GET", "POST", "PUT", "DELETE", "OPTIONS"], // Explicitly list allowed methods
+  allowedHeaders: ["Content-Type", "Authorization"], // Add any custom headers you are using
+  preflightContinue: false, // Pass the CORS preflight response
+  optionsSuccessStatus: 204 // Some legacy browsers (IE11, various SmartTVs) choke on 204
 }));
 
 app.use(express.json());
