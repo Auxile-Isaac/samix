@@ -7,7 +7,7 @@ const cors = require("cors");
 
 // Apply CORS middleware at the top
 app.use(cors({
-  origin: ["http://localhost:3000", "http://samix.vercel.app", "https://winta-sand.vercel.app", "https://winta-git-main-auxileisaacs-projects.vercel.app"],
+  origin: ["http://localhost:3000", "http://samix.vercel.app", "https://winta-sand.vercel.app", "https://winta-git-main-auxileisaacs-projects.vercel.app/"],
   credentials: true
 }));
 
